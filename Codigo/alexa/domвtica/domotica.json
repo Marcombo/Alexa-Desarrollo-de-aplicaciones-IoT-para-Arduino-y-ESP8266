@@ -1,0 +1,385 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "asistente domótico",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "encenderLuz",
+                    "slots": [
+                        {
+                            "name": "habitacion",
+                            "type": "habitacion",
+                            "samples": [
+                                "{habitacion}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Enciende la luz {habitacion}",
+                        "Enciende la luz"
+                    ]
+                },
+                {
+                    "name": "apagarLuz",
+                    "slots": [
+                        {
+                            "name": "habitacion",
+                            "type": "habitacion",
+                            "samples": [
+                                "{habitacion}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Apaga la luz",
+                        "Quita la luz",
+                        "Apaga la luz {habitacion}",
+                        "Quita la luz {habitacion}"
+                    ]
+                },
+                {
+                    "name": "consultarLuz",
+                    "slots": [
+                        {
+                            "name": "habitacion",
+                            "type": "habitacion",
+                            "samples": [
+                                "{habitacion}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Cómo está la luz",
+                        "He dejado encendida la luz",
+                        "Está encendida la luz",
+                        "He apagado la luz",
+                        "Está encendida la luz {habitacion}"
+                    ]
+                },
+                {
+                    "name": "consultarTemperatura",
+                    "slots": [],
+                    "samples": [
+                        "Dame la temperatura",
+                        "Dime la temperatura",
+                        "Cuántos grados hay",
+                        "Qué temperatura hace",
+                        "Cuál es la temperatura"
+                    ]
+                },
+                {
+                    "name": "encenderCalefaccion",
+                    "slots": [],
+                    "samples": [
+                        "Pon la calefacción",
+                        "Enciende la calefacción"
+                    ]
+                },
+                {
+                    "name": "apagarCalefaccion",
+                    "slots": [],
+                    "samples": [
+                        "Quita la calefacción",
+                        "Apaga la calefacción"
+                    ]
+                },
+                {
+                    "name": "consultarCalefaccion",
+                    "slots": [],
+                    "samples": [
+                        "A qué hora se va a encender la calefacción",
+                        "A qué hora está puesta la calefacción",
+                        "A qué hora está programada la calefacción",
+                        "Cómo está la calefacción",
+                        "He dejado encendida la calefacción",
+                        "He quitado la calefacción",
+                        "Está puesta la calefacción",
+                        "A qué temperatura está puesta la calefacción",
+                        "A qué temperatura está programada la calefacción"
+                    ]
+                },
+                {
+                    "name": "programarTemperatura",
+                    "slots": [
+                        {
+                            "name": "temperatura",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{temperatura}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Enciende la calefacción a los {temperatura} grados",
+                        "Pon la calefacción en {temperatura} grados",
+                        "Programa la temperatura de la calefacción a {temperatura} grados"
+                    ]
+                },
+                {
+                    "name": "programarHora",
+                    "slots": [
+                        {
+                            "name": "hora",
+                            "type": "AMAZON.TIME"
+                        },
+                        {
+                            "name": "duracion",
+                            "type": "AMAZON.DURATION"
+                        }
+                    ],
+                    "samples": [
+                        "Enciende la calefacción en {duracion}",
+                        "Pon la calefacción dentro de {duracion}",
+                        "Enciende la calefacción a {hora}",
+                        "Pon la calefacción a {hora}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "habitacion",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "dormitorio",
+                                "synonyms": [
+                                    "habitación"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "salón"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "encenderLuz",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "habitacion",
+                            "type": "habitacion",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.175786877520.996145707378"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.304633871386.317586354209.68854504603"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "apagarLuz",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "habitacion",
+                            "type": "habitacion",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1325295204738.916161551469"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.1325295204738.916161551469.852486071055"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "consultarLuz",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "habitacion",
+                            "type": "habitacion",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.991313723592.30763588592"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.991313723592.30763588592.981098403294"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "programarTemperatura",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "temperatura",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1283223188331.1194692595461"
+                            },
+                            "validations": [
+                                {
+                                    "type": "isLessThan",
+                                    "prompt": "Slot.Validation.761893491945.1367513034557.830494358088",
+                                    "value": "50"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "programarHora",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.835740762200"
+                    },
+                    "slots": [
+                        {
+                            "name": "hora",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "duracion",
+                            "type": "AMAZON.DURATION",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.175786877520.996145707378",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Tiene que indicarme la habitación en la que quiere encender la luz"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.304633871386.317586354209.68854504603",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Solo puedo encender la luz del salón o del dormitorio. ¿Cuál prefiere?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1325295204738.916161551469",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿En qué habitación quiere que apague la luz?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.1325295204738.916161551469.852486071055",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Solo puedo apagar la luz del salón o del dormitorio. ¿Cuál prefiere?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.991313723592.30763588592",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿De qué habitación quiere saber el estado de la luz?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.991313723592.30763588592.981098403294",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Solo conozco el estado de la la luz del salón o el dormitorio. ¿Cuál quiere saber?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1283223188331.1194692595461",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿A qué temperatura quiere programar la calefacción?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.262326949065.1221163527391",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿A qué hora quieres que encienda la claefacción?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.835740762200",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Al programar la hora de la calefacción, si estuviera encendida se apagaría. ¿Está de acuerdo?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.761893491945.1367513034557.830494358088",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "La calefacción no se puede programar a una temperatura superior a los cincuenta grados centígrados. Por favor, diga una inferior."
+                    }
+                ]
+            }
+        ]
+    }
+}

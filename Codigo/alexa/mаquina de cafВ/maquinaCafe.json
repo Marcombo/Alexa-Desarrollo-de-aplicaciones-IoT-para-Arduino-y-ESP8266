@@ -1,0 +1,285 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "máquina de café",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "SolicitudCafe",
+                    "slots": [
+                        {
+                            "name": "cafe",
+                            "type": "TipoCafe",
+                            "samples": [
+                                "{cafe}"
+                            ]
+                        },
+                        {
+                            "name": "leche",
+                            "type": "CantidadLeche",
+                            "samples": [
+                                "{leche}"
+                            ]
+                        },
+                        {
+                            "name": "edulcorante",
+                            "type": "TipoEdulcorante",
+                            "samples": [
+                                "{edulcorante}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Un {cafe}",
+                        "{cafe}",
+                        "{cafe} {leche}",
+                        "Dame un {cafe} {leche} {edulcorante}",
+                        "Quiero un {cafe} {leche} y {edulcorante}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                },
+                {
+                    "name": "SolicitudNombre",
+                    "slots": [
+                        {
+                            "name": "nombre",
+                            "type": "AMAZON.FirstName"
+                        }
+                    ],
+                    "samples": [
+                        "{nombre}",
+                        "Mi nombre es {nombre}",
+                        "Soy {nombre}",
+                        "Me llamo {nombre}",
+                        "Llámame {nombre}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "TipoCafe",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "café descafeinado",
+                                "synonyms": [
+                                    "descafeinado"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "café normal",
+                                "synonyms": [
+                                    "normal",
+                                    "café"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "CantidadLeche",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "con leche"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cortado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sólo",
+                                "synonyms": [
+                                    "solo"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "TipoEdulcorante",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "sin edulcorante",
+                                "synonyms": [
+                                    "amargo"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sacarina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "azúcar"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "SolicitudCafe",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.473181696767"
+                    },
+                    "slots": [
+                        {
+                            "name": "cafe",
+                            "type": "TipoCafe",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.925655865041.514830791244"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.925655865041.514830791244.1293891801167"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "leche",
+                            "type": "CantidadLeche",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.373119105854.395831837209"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.373119105854.395831837209.1008617360090"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "edulcorante",
+                            "type": "TipoEdulcorante",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.373119105854.334154877288"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.373119105854.334154877288.1414486888863"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.925655865041.514830791244",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Solo hay café normal y descafeinado. ¿Cuál prefiere?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.925655865041.514830791244.1293891801167",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Solo hay café normal y descafeinado. ¿Cuál prefiere?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.373119105854.395831837209",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿Sólo, cortado o con leche?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.373119105854.395831837209.1008617360090",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "El café únicamente puede ser sólo, cortado o con leche"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.373119105854.334154877288",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿Quiere azúcar, sacarina o sin edulcorante?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.373119105854.334154877288.1414486888863",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Solo puede poner azúcar o sacarina. ¿O lo prefiere sin edulcorante?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.190979238004",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Ha solicitado un {cafe} {leche} y {edulcorante}. ¿Es correcto?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.473181696767",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Ha solicitado un {cafe} {leche} y {edulcorante}. ¿Es correcto?"
+                    }
+                ]
+            }
+        ]
+    }
+}

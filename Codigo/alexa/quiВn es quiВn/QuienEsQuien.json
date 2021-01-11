@@ -1,0 +1,114 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "quién es quién",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "obtenerNombre",
+                    "slots": [
+                        {
+                            "name": "nombre",
+                            "type": "AMAZON.FirstName",
+                            "samples": [
+                                "{nombre}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "{nombre}",
+                        "Se trata de {nombre}",
+                        "Es {nombre}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": [
+                        "si"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "obtenerNombre",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "nombre",
+                            "type": "AMAZON.FirstName",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.787448585270.1061800697856"
+                            },
+                            "validations": [
+                                {
+                                    "type": "isInSet",
+                                    "prompt": "Slot.Validation.787448585270.1061800697856.930355934391",
+                                    "values": [
+                                        "Luis",
+                                        "Pedro",
+                                        "Juan"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Slot.Validation.1022973403933.1095259640405.589500563719",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Solo puede dar los nombres de Luis, Pedro y Juan"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.787448585270.1061800697856",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Debe indicar el nombre de Luis, Pedro o Juan"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.787448585270.1061800697856.930355934391",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Solo puede dar los nombres de Luis, Pedro y Juan"
+                    }
+                ]
+            }
+        ]
+    }
+}
